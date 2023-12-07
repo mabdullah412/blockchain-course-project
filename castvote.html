@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- phosphoricons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <title>Block Ballot</title>
+</head>
+
+<body>
+    <nav>
+        <div id="nav-logo">
+            <img src="./images/blo_pro_logo-light-01.png" alt="Logo" width="50" height="50">
+            <span id="Logo">Block Ballot</span>
+        </div>
+
+        <div id="nav-buttons">
+            <button class="nav-button">
+                <i class="ph ph-rows"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-button selected-button">
+                <i class="ph ph-archive-box"></i>
+                <span>Cast Vote</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div>
+            <div class="heading-container">
+                <h3>Cast Vote</h3>
+            </div>
+            <div class="data-card">
+                <form action="">
+
+                    <div id="form-address-and-poling">
+                        <div class="form-field">
+                            <div class="form-label-and-hint">
+                                <label for="address">Address</label>
+                                <span class="form-hint">42 characters remaining</span>
+                            </div>
+                            <input class="text-input-field" type="text" name="address" id="address"
+                                placeholder="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
+                        </div>
+
+                        <div class="form-field">
+                            <div class="form-label-and-hint">
+                                <label for="address">Poling Unit</label>
+                            </div>
+                            <select class="select-field" name="polingunit" id="polingunit">
+                                <option value="punjab">Punjab</option>
+                                <option value="punjab">Balochistan</option>
+                                <option value="punjab">Sindh</option>
+                                <option value="punjab">Peshawer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Candidate</label>
+                        <div id="custom-radio-button-field">
+                            <div class="custom-radio-buttom">Sir Alex Ferguson</div>
+                            <div class="custom-radio-buttom">Pep Guardiola</div>
+                        </div>
+                    </div>
+                    
+                    <input class="form-button" type="submit" value="VOTE">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
