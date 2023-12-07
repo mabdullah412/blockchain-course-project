@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #ededed;
+    --secondary: #333333;
+    --background: #cccccc;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: var(--background);
+}
+
+
+nav {
+    min-height: 100vh;
+    width: 18rem;
+    background-color: #333333;
+    padding-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 4rem;
+}
+
+#nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#nav-logo span {
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.nav-button {
+    font-family: 'Poppins', sans-serif;
+
+    padding: 1rem;
+    width: 100%;
+    border: none;
+
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+    align-items: center;
+    font-weight: 600;
+
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.nav-button i {
+    font-size: 1.4rem;
+}
+
+.nav-button:hover {
+    cursor: pointer;
+    background-color: #cccccc;
+    color: var(--secondary);
+}
+
+.nav-button:active {
+    cursor: pointer;
+    background-color: #eeeeee;
+    color: var(--secondary);
+}
+
+.selected-button {
+    color: var(--secondary);
+    background-color: var(--primary);
+}
+
+main {
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+}
+
+.heading-container {
+    padding: 2rem;
+}
+
+#summary-container {
+    background-color: #dddddd;
+    height: 20rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+td,
+th {
+    padding: 0.7rem;
+    text-align: left;
+}
+
+th:first-child,
+td:first-child {
+    padding-left: 2rem;
+}
+
+tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+tr {
+    font-size: 0.8rem;
+}
