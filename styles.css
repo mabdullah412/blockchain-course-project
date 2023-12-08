@@ -88,8 +88,9 @@ main {
     width: 100%;
 }
 
-h3 {
+p, h2, h3, h4 {
     margin: 0;
+    padding: 0;
 }
 
 .heading-container {
@@ -99,6 +100,150 @@ h3 {
 .data-card {
     background-color: #dddddd;
     padding: 2rem;
+}
+
+.divider {
+    height: 1rem;
+}
+
+.candidate-cards {
+    display: flex;
+    gap: 1rem;
+}
+
+.candidate-card {
+    width: 100%;
+    background-color: #333333;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+
+.candidate-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.candidate-title h4 {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.candidate-title span {
+    color: var(--background);
+    font-weight: 200;
+    font-size: 0.8rem;
+}
+
+.candidate-stats {
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.candidate-stats p {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.candidate-stats h2 {
+    font-weight: 400;
+    font-size: 2.6rem;
+}
+
+.candidate-overall-progress {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+}
+
+.progress-block {
+    border: 1px solid var(--background);
+    height: 0.5rem;
+    width: 100%;
+}
+
+.filled {
+    background-color: var(--background);
+}
+
+.go-to-page-btn {
+    background-color: var(--primary);
+    color: #333333;
+    font-size: 1rem;
+    width: 3rem;
+    height: 3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-card {
+    background-color: var(--secondary);
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.stats-card > h4 {
+    color: #dddddd;
+    font-weight: 500;
+}
+
+.graph {
+    width: 100%;
+    height: 8rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.graph-item {
+    width: 100%;
+    background-color: #dddddd;
+    border: 0.5rem solid #333333;
+    height: 1rem;
+}
+
+#graph-pu {
+    height: 4rem;
+}
+
+#graph-si {
+    height: 7rem;
+}
+
+#graph-bl {
+    height: 2rem;
+}
+
+#graph-pe {
+    height: 3rem;
+}
+
+.graph-info {
+    width: 100%;
+    color: var(--primary);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.graph-info p {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 300;
 }
 
 form {
@@ -226,7 +371,7 @@ th {
 
 td,
 th {
-    padding: 0.7rem;
+    padding: 1rem;
     text-align: left;
 }
 
