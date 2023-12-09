@@ -4,7 +4,7 @@ const { Web3 } = require("web3");
 const web3 = new Web3("http://127.0.0.1:7545");
 
 const COMPILED_CONTRACT = require("./build/contracts/BlockBallot.json");
-const CONTRACT_ADDRESS = "0xe3dFB6B793b12aDA0fA7af318D43675BC6c9A483";
+const CONTRACT_ADDRESS = "0xA387b2727585D27f5fBAdb7055C3C1C479782784";
 
 let instance = new web3.eth.Contract(COMPILED_CONTRACT.abi, CONTRACT_ADDRESS);
 
@@ -18,7 +18,6 @@ async function vote(candidate, polingUnit, timeOfVote, account) {
     return "success";
   } catch (error) {
     if (error.message == "Error happened while trying to execute a function inside a smart contract") {
-      console.log("User with this address has already voted.");
       return "duplicate";
     }
     console.log(error.message);

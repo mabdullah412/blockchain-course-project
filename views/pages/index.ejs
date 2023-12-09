@@ -85,19 +85,20 @@
                         </div>
                         <div class="candidate-stats">
                             <p>Votes</p>
-                            <h2>24</h2>
+                            <h2><%= voteCount1 %></h2>
                         </div>
                         <div class="candidate-overall-progress">
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
+
+                            <% bars1 = isNaN(bars1) ? 0 : bars1 %>
+
+                            <% for (let i = 0; i < bars1; i++) { %>
+                                <div class="progress-block filled"></div>
+                            <% } %>
+
+                            <% for (let i = bars1; i < 10; i++) { %>
+                                <div class="progress-block"></div>
+                            <% } %>
+
                         </div>
                     </div>
                     <div class="candidate-card">
@@ -113,19 +114,20 @@
                         </div>
                         <div class="candidate-stats">
                             <p>Votes</p>
-                            <h2>18</h2>
+                            <h2><%= voteCount2 %></h2>
                         </div>
                         <div class="candidate-overall-progress">
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block filled"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
-                            <div class="progress-block"></div>
+
+                            <% bars2 = isNaN(bars2) ? 0 : bars2 %>
+
+                            <% for (let i = 0; i < bars2; i++) { %>
+                                <div class="progress-block filled"></div>
+                            <% } %>
+
+                            <% for (let i = bars2; i < 10; i++) { %>
+                                <div class="progress-block"></div>
+                            <% } %>
+
                         </div>
                     </div>
                 </div>
