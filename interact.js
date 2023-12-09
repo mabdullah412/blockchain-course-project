@@ -4,25 +4,30 @@ const { Web3 } = require("web3");
 const web3 = new Web3("http://127.0.0.1:7545");
 
 const COMPILED_CONTRACT = require("./build/contracts/BlockBallot.json");
-const CONTRACT_ADDRESS = "";
+const CONTRACT_ADDRESS = "0xe3dFB6B793b12aDA0fA7af318D43675BC6c9A483";
 
 let instance = new web3.eth.Contract(COMPILED_CONTRACT.abi, CONTRACT_ADDRESS);
 
-async function vote(candidate, polingUnit, account) {
+async function vote(candidate, polingUnit, timeOfVote, account) {
   try {
-    await instance.methods.vote(candidate, polingUnit).send({
+    await instance.methods.vote(candidate, polingUnit, timeOfVote).send({
       from: account,
       gasLimit: "6721975",
     });
+
+    return "success";
   } catch (error) {
-    // console.log(error["innerError"].toString().split("revert ")[1]);
+    if (error.message == "Error happened while trying to execute a function inside a smart contract") {
+      console.log("User with this address has already voted.");
+      return "duplicate";
+    }
     console.log(error.message);
   }
 }
 
-async function getVoteCountOfCanditate(candidate) {
+async function getVoteCountOfCandidate(candidate) {
   try {
-    let data = await instance.methods.getVoteCountOfCanditate(candidate).call();
+    let data = await instance.methods.getVoteCountOfCandidate(candidate).call();
     return data;
   } catch (error) {
     console.log(error.message);
@@ -73,6 +78,16 @@ async function getAllVotersTimeOfVote() {
     console.log(error.message);
   }
 }
+
+module.exports = {
+  'vote': vote,
+  'getVoteCountOfCandidate': getVoteCountOfCandidate,
+  'getTotalVoteCount': getTotalVoteCount,
+  'getAllVotersAddress': getAllVotersAddress,
+  'getAllVotersCandidate': getAllVotersCandidate,
+  'getAllVotersPolingUnit': getAllVotersPolingUnit,
+  'getAllVotersTimeOfVote': getAllVotersTimeOfVote,
+};
 
 // async function functionTesting() {
 //   console.log(`Total vote count: ${await getTotalVoteCount()}`);

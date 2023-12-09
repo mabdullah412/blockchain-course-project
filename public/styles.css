@@ -86,6 +86,72 @@ nav {
     background-color: var(--primary);
 }
 
+.response-box {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+
+    padding: 1rem;
+    font-size: 0.9rem;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.response-box i {
+    font-size: 1rem;
+}
+
+.response-box-success {
+    background-color: lightgreen;
+    color: green;
+}
+
+.response-box-warning {
+    background-color: lightyellow;
+    color: darkorange;
+}
+
+.response-box-error {
+    background-color: lightcoral;
+    color: maroon;
+}
+
+.close-response-box {
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.close-response-box:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.close-response-box:active {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* .go-to-page-btn {
+    background-color: var(--primary);
+    color: #333333;
+    font-size: 1rem;
+    width: 3rem;
+    height: 3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 main {
     width: 100%;
 }
@@ -262,6 +328,10 @@ form {
     gap: 1rem;
 }
 
+.hidden-form-field {
+    display: none;
+}
+
 .text-input-field {
     font-family: 'Poppins', sans-serif;
     background-color: #eeeeee;
@@ -277,7 +347,7 @@ form {
     align-items: end;
 }
 
-.form-hint {
+#form-hint {
     font-size: 0.7rem;
     font-weight: 300;
 }
@@ -327,10 +397,10 @@ form {
 .selected-radio {
     cursor: pointer;
     background-color: var(--secondary);
-    color: var(--background);
+    color: var(--primary);
 }
 
-.form-button {
+#form-button {
     font-family: 'Poppins', sans-serif;
 
     padding: 1rem;
@@ -346,17 +416,17 @@ form {
     background-color: #eeeeee;
 }
 
-.form-button i {
+#form-button i {
     font-size: 1.4rem;
 }
 
-.form-button:hover {
+#form-button:hover:enabled {
     cursor: pointer;
     background-color: #cccccc;
     color: var(--secondary);
 }
 
-.form-button:active {
+#form-button:active:enabled {
     cursor: pointer;
     background-color: var(--secondary);
     color: var(--background);

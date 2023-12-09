@@ -9,7 +9,7 @@ contract BlockBallot {
     address[] public votersAddress;
     string[] public votersCandidate;
     string[] public votersPolingUnit;
-    uint[] public votersTimeOfVote; 
+    string[] public votersTimeOfVote; 
 
     // stores the number of votes of each candidate
     mapping (string => uint256) public votes;
@@ -20,7 +20,7 @@ contract BlockBallot {
     event Voted(address indexed voter, string candidate);
 
     // the main vote function
-    function vote(string memory candidate, string memory polingUnit) external {
+    function vote(string memory candidate, string memory polingUnit, string memory timeOfVote) external {
 
         // check if this user has already voted
         require(!hasVoted[msg.sender], "User with this address has already voted.");
@@ -33,7 +33,7 @@ contract BlockBallot {
         votersAddress.push(msg.sender);
         votersCandidate.push(candidate);
         votersPolingUnit.push(polingUnit);
-        votersTimeOfVote.push(block.timestamp);
+        votersTimeOfVote.push(timeOfVote);
 
         // increment total no. of votes
         voteCount++;
@@ -42,7 +42,7 @@ contract BlockBallot {
     }
 
     // returns the vote count of a candidate
-    function getVoteCountOfCanditate(string memory candidate) public view returns (uint256 data) {
+    function getVoteCountOfCandidate(string memory candidate) public view returns (uint256 data) {
         return votes[candidate];
     }
 
@@ -61,7 +61,7 @@ contract BlockBallot {
     function getAllVotersPolingUnit() public view returns (string[] memory) {
         return votersPolingUnit;
     }
-    function getAllVotersTimeOfVote() public view returns (uint[] memory) {
+    function getAllVotersTimeOfVote() public view returns (string[] memory) {
         return votersTimeOfVote;
     }
 }

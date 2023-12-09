@@ -27,7 +27,7 @@
                 <i class="ph ph-rows"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="/castvote.html" class="nav-button selected-button">
+            <a href="/castvote" class="nav-button selected-button">
                 <i class="ph ph-archive-box"></i>
                 <span>Cast Vote</span>
             </a>>
@@ -40,15 +40,15 @@
                 <h3>Cast Vote</h3>
             </div>
             <div class="data-card">
-                <form action="">
+                <form action="/castvote" method="post">
 
                     <div id="form-address-and-poling">
                         <div class="form-field">
                             <div class="form-label-and-hint">
                                 <label for="address">Address</label>
-                                <span class="form-hint">42 characters remaining</span>
+                                <span id="form-hint">42 characters remaining</span>
                             </div>
-                            <input class="text-input-field" type="text" name="address" id="address"
+                            <input class="text-input-field" type="text" name="address" id="address-field"
                                 placeholder="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
                         </div>
 
@@ -56,11 +56,11 @@
                             <div class="form-label-and-hint">
                                 <label for="address">Poling Unit</label>
                             </div>
-                            <select class="select-field" name="polingunit" id="polingunit">
-                                <option value="punjab">Punjab</option>
-                                <option value="punjab">Balochistan</option>
-                                <option value="punjab">Sindh</option>
-                                <option value="punjab">Peshawer</option>
+                            <select class="select-field" name="polingunit" id="poling-unit-field">
+                                <option value="Punjab">Punjab</option>
+                                <option value="Balochistan">Balochistan</option>
+                                <option value="Sindh">Sindh</option>
+                                <option value="Peshawer">Peshawer</option>
                             </select>
                         </div>
                     </div>
@@ -73,11 +73,17 @@
                         </div>
                     </div>
                     
-                    <input class="form-button" type="submit" value="VOTE">
+                    <div class="hidden-form-field">
+                        <input type="text" name="candidate" id="candidate-field">
+                    </div>
+
+                    <input id="form-button" type="submit" value="VOTE" disabled>
                 </form>
             </div>
         </div>
     </main>
+
+    <script src="./castvote.js"></script>
 </body>
 
 </html>
