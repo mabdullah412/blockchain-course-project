@@ -21,6 +21,8 @@ contract BlockBallot {
 
     // the main vote function
     function vote(string memory candidate, string memory polingUnit) external {
+
+        // check if this user has already voted
         require(!hasVoted[msg.sender], "User with this address has already voted.");
 
         // increment candidates no. of votes
@@ -40,12 +42,12 @@ contract BlockBallot {
     }
 
     // returns the vote count of a candidate
-    function getVotesOfCanditate(string memory candidate) public view returns (uint256 data) {
+    function getVoteCountOfCanditate(string memory candidate) public view returns (uint256 data) {
         return votes[candidate];
     }
 
     // returns the total vote count
-    function getVoteCount() public view returns (uint256 data) {
+    function getTotalVoteCount() public view returns (uint256 data) {
         return voteCount;
     }
 
