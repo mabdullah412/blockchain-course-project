@@ -35,6 +35,14 @@
                     <i class="ph ph-x"></i>
                 </button>
             </div>
+        <% } else if(response == "invalid") { %>
+                <div class="response-box response-box-warning">
+                    <i class="ph-fill ph-warning"></i>
+                    <p>Invalid wallet address.</p>
+                    <button class="close-response-box">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
         <% } else { %>
             <div class="response-box response-box-error">
                 <i class="ph-fill ph-bug"></i>
@@ -75,10 +83,10 @@
                     <div class="candidate-card">
                         <div class="candidate-title">
                             <div>
-                                <h4>Sir Alex Ferguson</h4>
+                                <h4><%= candidate1 %></h4>
                                 <span>Candidate 1</span>
                             </div>
-                            <a class="go-to-page-btn" href="https://en.wikipedia.org/wiki/Alex_Ferguson"
+                            <a class="go-to-page-btn" href="<%= candidate1href %>"
                                 target="_blank">
                                 <i class="ph ph-arrow-up-right"></i>
                             </a>
@@ -104,10 +112,10 @@
                     <div class="candidate-card">
                         <div class="candidate-title">
                             <div>
-                                <h4>Pep Guardiola</h4>
+                                <h4><%= candidate2 %></h4>
                                 <span>Candidate 2</span>
                             </div>
-                            <a class="go-to-page-btn" href="https://en.wikipedia.org/wiki/Pep_Guardiola"
+                            <a class="go-to-page-btn" href="<%= candidate2href %>"
                                 target="_blank">
                                 <i class="ph ph-arrow-up-right"></i>
                             </a>
@@ -135,10 +143,17 @@
                 <div class="stats-card">
                     <h4>Poling Unit's vote distribution</h4>
                     <div class="graph">
-                        <div class="graph-item" id="graph-pu"></div>
-                        <div class="graph-item" id="graph-si"></div>
-                        <div class="graph-item" id="graph-bl"></div>
-                        <div class="graph-item" id="graph-pe"></div>
+
+                        <% for (let i = 0; i < graphItems.length; i++) { %>
+
+                            <% if (graphItems[i] === 0 || voteCount == 0) { %>
+                                <div class="graph-item"></div>
+                            <% } else { %>
+                                <div class="graph-item"style="height: <%= graphItems[i] %>rem;"></div>
+                            <% } %>
+
+                        <% } %>
+
                     </div>
                     <div class="graph-info">
                         <p>Punjab</p>
@@ -175,9 +190,17 @@
                             <td><%= votersCandidate[i] %></td>
                         </tr>
                     <% } %>
-                    
+                        
                 </tbody>
+
             </table>
+
+            <% if (voteCount == 0) { %>
+                <div id="no-votes-msg">
+                    No one has casted a vote yet.
+                </div>
+            <% } %>
+            
         </div>
     </main>
 
