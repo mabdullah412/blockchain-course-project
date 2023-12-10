@@ -165,55 +165,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>12:45 am, 11/05/2023</td>
-                        <td>Punjab</td>
-                        <td>Sir Alex Ferguson</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>01:45 am, 11/05/2023</td>
-                        <td>Sindh</td>
-                        <td>Sir Alex Ferguson</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>02:45 am, 11/05/2023</td>
-                        <td>Balochistan</td>
-                        <td>Pep Guardiola</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>02:45 am, 11/05/2023</td>
-                        <td>Balochistan</td>
-                        <td>Pep Guardiola</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>02:45 am, 11/05/2023</td>
-                        <td>Balochistan</td>
-                        <td>Pep Guardiola</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>02:45 am, 11/05/2023</td>
-                        <td>Balochistan</td>
-                        <td>Pep Guardiola</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>0x71C7656EC7ab88b098defB751B7401B5f6d8976F</td>
-                        <td>02:45 am, 11/05/2023</td>
-                        <td>Balochistan</td>
-                        <td>Pep Guardiola</td>
-                    </tr>
+
+                    <% for (let i = 0; i < voteCount; i++) { %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= votersAddress[i] %></td>
+                            <td><%= (new Date(parseInt(votersTimeOfVote[i]))).toLocaleString() %></td>
+                            <td><%= votersPolingUnit[i] %></td>
+                            <td><%= votersCandidate[i] %></td>
+                        </tr>
+                    <% } %>
+                    
                 </tbody>
             </table>
         </div>

@@ -44,9 +44,9 @@ app.post("/castvote", async function (req, res) {
 
 async function SendDashboard(req, res, status) {
   // get votes
-  const totalVoteCount = parseFloat(await getTotalVoteCount());
-  const candidate1VoteCount = parseFloat(await getVoteCountOfCandidate("Sir Alex Ferguson"));
-  const candidate2VoteCount = parseFloat(await getVoteCountOfCandidate("Pep Guardiola"));
+  let totalVoteCount = parseFloat(await getTotalVoteCount());
+  let candidate1VoteCount = parseFloat(await getVoteCountOfCandidate("Sir Alex Ferguson"));
+  let candidate2VoteCount = parseFloat(await getVoteCountOfCandidate("Pep Guardiola"));
 
   // number of percentage bars to displayed under each candidate
   let percentage1 = candidate1VoteCount / totalVoteCount;
@@ -55,15 +55,10 @@ async function SendDashboard(req, res, status) {
   let percentsBar2 = percentage2 > percentage1 ? Math.ceil(percentage2 * 10) : Math.floor(percentage2 * 10);
 
   // get votersData
-  const votersAddress = await getAllVotersAddress();
-  const votersCandidate = await getAllVotersCandidate();
-  const votersPolingUnit = await getAllVotersPolingUnit();
-  const votersTimeOfVote = await getAllVotersTimeOfVote();
-
-  // console.log(votersAddress);
-  // console.log(votersCandidate);
-  // console.log(votersPolingUnit);
-  // console.log(votersTimeOfVote);
+  let votersAddress = await getAllVotersAddress();
+  let votersCandidate = await getAllVotersCandidate();
+  let votersPolingUnit = await getAllVotersPolingUnit();
+  let votersTimeOfVote = await getAllVotersTimeOfVote();
 
   let data = {
     voteCount: totalVoteCount,
@@ -71,6 +66,10 @@ async function SendDashboard(req, res, status) {
     voteCount2: candidate2VoteCount,
     bars1: percentsBar1,
     bars2: percentsBar2,
+    votersAddress: votersAddress,
+    votersCandidate: votersCandidate,
+    votersPolingUnit: votersPolingUnit,
+    votersTimeOfVote: votersTimeOfVote,
   };
 
   // if status was sent, add it into the data to be sent 
